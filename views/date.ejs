@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+</head>
+
+<body class='d-flex flex-column vh-100'>
+
+    <main class="container mt-5 mb-5">
+        <div class="container d-flex justify-content-center align-items-center mt-1">
+            <div class="row">
+                <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+                    <div class="card shadow">
+                        <img src="https://images.unsplash.com/photo-1571863533956-01c88e79957e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80"
+                            alt="" class="card-img-top" />
+                        <div class="card-body">
+                            <h5 class="card-title">Enter Birthday Date</h5>
+                            <form action="/" method="POST" class="validated-form" novalidate>
+                                <div class="mb-3">
+                                    <label class="form-label" for="names">Name</label>
+                                    <input class="form-control" type="text" id="names" name="names" autocomplete="off"
+                                        autofocus required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label" for="email">Email</label>
+                                    <input class="form-control" type="email" id="email" autocomplete="off" name="email"
+                                        required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="date">Date</label>
+                                    <input class="form-control" type="Date" id="date" autocomplete="off" name="date"
+                                        required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                <button class="btn btn-success btn-block">Enter</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+    <script src="/javascripts/validateForms.js"></script>
+</body>
+
+</html>
