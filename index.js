@@ -11,8 +11,8 @@ app.use(express.urlencoded({ extended: true }));
 
 
 // const dbUrl = 'mongodb://localhost:27017/dates';
-const dbUrl = 'mongodb+srv://happybirthdaymessage:woV76BMccfoLYRjI@cluster1.ejllaob.mongodb.net/?retryWrites=true&w=majority'
-// const dbUrl = process.env.DB_URL
+// const dbUrl = 'mongodb+srv://happybirthdaymessage:woV76BMccfoLYRjI@cluster1.ejllaob.mongodb.net/?retryWrites=true&w=majority'
+const dbUrl = process.env.DB_URL
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     // useCreateIndex: true,
@@ -76,16 +76,16 @@ app.post('/', async (req, res) => {
 })
 
 
-setInterval(myFunction, 1000)
+// setInterval(myFunction, 1000)
 
-async function myFunction() {
-    let d = new Date();
-    const tim = d.getHours() + ':' + d.getMinutes()
-    const gim = d.getUTCHours() + ':' + d.getUTCMinutes() + ':' + d.getUTCDay()
-    console.log(tim)
-    console.log(gim)
+// async function myFunction() {
+//     let d = new Date();
+//     const tim = d.getHours() + ':' + d.getMinutes()
+//     const gim = d.getUTCHours() + ':' + d.getUTCMinutes() + ':' + d.getUTCDay()
+//     console.log(tim)
+//     console.log(gim)
 
-}
+// }
 
 
 
@@ -93,8 +93,6 @@ const textJob = new cronJob('0 1 0 * * *', async function () {
     // const textJob = new cronJob('1 * * * * *', async function () {
     let d = new Date();
     const dat = d.getMonth() + 1 + ':' + d.getDate();
-    const tim = d.getHours() + d.getMinutes()
-    console.log(tim)
     const findDate = await Dates.find({
         date: dat
     });
@@ -104,7 +102,7 @@ const textJob = new cronJob('0 1 0 * * *', async function () {
                 from: 'mageshmurugan64@gmail.com',
                 to: `magesh <${datq.email}>`,
                 subject: `Happy Birthday ${datq.names}`,
-                text: `Wishing You the Best Birthday ${datq.names} ${tim}`
+                text: `Wishing You the Best Birthday ${datq.names} `
                 // html: `<div>
                 // <h1>hello${datq.names}</h1>
                 // </div>`
