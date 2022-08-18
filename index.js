@@ -80,8 +80,10 @@ setInterval(myFunction, 1000)
 
 async function myFunction() {
     let d = new Date();
-    const tim = d.UTC.getHours() + ':' + d.getMinutes()
+    const tim = d.getHours() + ':' + d.getMinutes()
+    const gim = d.getUTCHours() + ':' + d.getUTCMinutes() + ':' + d.getUTCDay()
     console.log(tim)
+    console.log(gim)
 
 }
 
