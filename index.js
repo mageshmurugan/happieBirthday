@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 // const dbUrl = 'mongodb://localhost:27017/dates';
 // const dbUrl = 'mongodb+srv://happybirthdaymessage:woV76BMccfoLYRjI@cluster1.ejllaob.mongodb.net/?retryWrites=true&w=majority'
 const dbUrl = process.env.DB_URL
-mongoose.connect(dbUrl, {
+mongoose.connect(`${dbUrl}`, {
     useNewUrlParser: true,
     // useCreateIndex: true,
     useUnifiedTopology: true,
@@ -82,12 +82,12 @@ app.post('/', async (req, res) => {
 
 // }
 
-const textJob = new cronJob('0 1 0 * * *', async function () {
-    // const textJob = new cronJob('* * * * * *', async function () {
+// const textJob = new cronJob('0 1 0 * * *', async function () {
+const textJob = new cronJob('1 * * * * *', async function () {
     let d = new Date();
     const dat = d.getMonth() + 1 + ':' + d.getDate();
     const tim = d.getHours()
-    // console.log(dat)
+    console.log(dat)
     const findDate = await Dates.find({
         date: dat
     });
