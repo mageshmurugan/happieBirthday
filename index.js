@@ -76,14 +76,18 @@ app.post('/', async (req, res) => {
 })
 
 
-// setInterval(myFunction, 1000)
+setInterval(myFunction, 1000)
 
-// async function myFunction() {
+async function myFunction() {
+    const tim = d.getHours() + d.getMinutes()
+    console.log(tim)
 
-// }
+}
 
-// const textJob = new cronJob('0 1 0 * * *', async function () {
-const textJob = new cronJob('1 * * * * *', async function () {
+
+
+const textJob = new cronJob('0 1 0 * * *', async function () {
+    // const textJob = new cronJob('1 * * * * *', async function () {
     let d = new Date();
     const dat = d.getMonth() + 1 + ':' + d.getDate();
     const tim = d.getHours() + d.getMinutes()
