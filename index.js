@@ -79,8 +79,8 @@ app.post('/', async (req, res) => {
 setInterval(myFunction, 1000)
 
 async function myFunction() {
-    let d = new Date.UTC();
-    const tim = d.getHours() + ':' + d.getMinutes()
+    let d = new Date();
+    const tim = d.UTC.getHours() + ':' + d.getMinutes()
     console.log(tim)
 
 }
