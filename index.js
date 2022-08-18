@@ -86,7 +86,7 @@ const textJob = new cronJob('0 1 0 * * *', async function () {
     // const textJob = new cronJob('* * * * * *', async function () {
     let d = new Date();
     const dat = d.getMonth() + 1 + ':' + d.getDate();
-
+    const tim = d.getHours()
     // console.log(dat)
     const findDate = await Dates.find({
         date: dat
@@ -97,7 +97,7 @@ const textJob = new cronJob('0 1 0 * * *', async function () {
                 from: 'mageshmurugan64@gmail.com',
                 to: `magesh <${datq.email}>`,
                 subject: `Happy Birthday ${datq.names}`,
-                text: `Wishing You the Best Birthday ${datq.names}`
+                text: `Wishing You the Best Birthday ${datq.names} ${tim}`
                 // html: `<div>
                 // <h1>hello${datq.names}</h1>
                 // </div>`
