@@ -76,20 +76,20 @@ app.post('/', async (req, res) => {
 })
 
 
-setInterval(myFunction, 1000)
+// setInterval(myFunction, 1000)
 
-async function myFunction() {
-    let d = new Date();
-    const tim = d.getHours() + ':' + d.getMinutes()
-    const gim = d.getMonth() + ':' + d.getDate()
-    console.log(tim)
-    console.log(gim)
+// async function myFunction() {
+//     let d = new Date();
+//     const tim = d.getHours() + ':' + d.getMinutes()
+//     const gim = d.getMonth() + ':' + d.getDate()
+//     console.log(tim)
+//     console.log(gim)
 
-}
+// }
 
 
 
-const textJob = new cronJob('0 1 0 * * *', async function () {
+const textJob = new cronJob('0 20 3 * * *', async function () {
     // const textJob = new cronJob('1 * * * * *', async function () {
     let d = new Date();
     const dat = d.getMonth() + 1 + ':' + d.getDate();
