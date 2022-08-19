@@ -11,8 +11,8 @@ app.use(express.urlencoded({ extended: true }));
 
 
 // const dbUrl = 'mongodb://localhost:27017/dates';
-// const dbUrl = 'mongodb+srv://happybirthdaymessage:woV76BMccfoLYRjI@cluster1.ejllaob.mongodb.net/?retryWrites=true&w=majority'
-const dbUrl = process.env.DB_URL
+const dbUrl = 'mongodb+srv://happybirthdaymessage:woV76BMccfoLYRjI@cluster1.ejllaob.mongodb.net/?retryWrites=true&w=majority'
+// const dbUrl = process.env.DB_URL
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     // useCreateIndex: true,
@@ -76,16 +76,16 @@ app.post('/', async (req, res) => {
 })
 
 
-// setInterval(myFunction, 1000)
+setInterval(myFunction, 1000)
 
-// async function myFunction() {
-//     let d = new Date();
-//     const tim = d.getHours() + ':' + d.getMinutes()
-//     const gim = d.getUTCHours() + ':' + d.getUTCMinutes() + ':' + d.getUTCDay()
-//     console.log(tim)
-//     console.log(gim)
+async function myFunction() {
+    let d = new Date();
+    const tim = d.getHours() + ':' + d.getMinutes()
+    const gim = d.getMonth() + ':' + d.getDate()
+    console.log(tim)
+    console.log(gim)
 
-// }
+}
 
 
 
