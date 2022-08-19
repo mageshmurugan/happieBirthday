@@ -89,7 +89,7 @@ app.post('/', async (req, res) => {
 
 
 
-const textJob = new cronJob('0 20 3 * * *', async function () {
+const textJob = new cronJob('1 1 1 * * *', async function () {
     // const textJob = new cronJob('1 * * * * *', async function () {
     let d = new Date();
     const dat = d.getMonth() + 1 + ':' + d.getDate();
@@ -99,8 +99,8 @@ const textJob = new cronJob('0 20 3 * * *', async function () {
     if (findDate) {
         for (let datq of findDate) {
             const mailOptions = {
-                from: 'mage <mageshmurugan64@gmail.com>',
-                to: `magesh <${datq.email}>`,
+                from: 'Happy Birthday <mageshmurugan64@gmail.com>',
+                to: `${datq.names} <${datq.email}>`,
                 subject: `Happy Birthday ${datq.names}`,
                 text: `Wishing You the Best Birthday ${datq.names} `
                 // html: `<div>
