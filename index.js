@@ -105,7 +105,7 @@ async function myFunction() {
   if (findDate) {
     for (let datq of findDate) {
       const mailOptions = {
-        from: 'Happie Birthday <mageshmurugan64@gmail.com>',
+        from: 'Happie Birthday <mageshmurugan68@gmail.com>',
         to: `${datq.names} <${datq.email}>`,
         subject: `Happie Birthday ${datq.names}`,
         // text: `Wishing You the Best Birthday ${datq.names} `
