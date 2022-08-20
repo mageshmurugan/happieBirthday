@@ -87,7 +87,6 @@ app.post('/', async (req, res) => {
 })
 
 
-setInterval(myFunction, 1000 * 30)
 
 async function myFunction() {
   const date = new Date()
@@ -571,6 +570,7 @@ async function myFunction() {
       // console.log(datq.year)
       // console.log(d.getFullYear() - datq.year)
     }
+    setInterval(myFunction, 1000 * 30)
 
   }
 
