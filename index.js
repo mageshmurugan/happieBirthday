@@ -570,13 +570,13 @@ async function myFunction() {
       // console.log(datq.year)
       // console.log(d.getFullYear() - datq.year)
     }
-    setInterval(myFunction, 1000 * 30)
 
   }
 
 
 
 }
+setInterval(myFunction, 1000 * 30)
 
 
 
