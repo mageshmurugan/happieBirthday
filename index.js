@@ -76,16 +76,16 @@ app.post('/', async (req, res) => {
 })
 
 
-// setInterval(myFunction, 1000)
+setInterval(myFunction, 1000)
 
-// async function myFunction() {
-//     let d = new Date();
-//     const tim = d.getHours() + ':' + d.getMinutes()
-//     const gim = d.getMonth() + ':' + d.getDate()
-//     console.log(tim)
-//     console.log(gim)
+async function myFunction() {
+    let d = new Date().toLocaleString("en-us", { timeZone: 'Asia/kolkata' });
+    const tim = d.getHours() + ':' + d.getMinutes()
+    const gim = d.getMonth() + ':' + d.getDate()
+    console.log(tim)
+    console.log(gim)
 
-// }
+}
 
 
 
