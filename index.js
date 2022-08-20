@@ -82,10 +82,12 @@ async function myFunction() {
     const date = new Date()
     // const timeZone = 'Asia/Kolkata';
     // const tim = d.getHours() + ':' + d.getMinutes()
-    const formatters = [new Intl.DateTimeFormat('sv', { timeStyle: 'medium', dateStyle: 'short', timeZone: 'Asia/Kolkata' }),
-    new Intl.DateTimeFormat('sv', { dateStyle: 'short', timeZone: 'Asia/Kolkata' })]
+    const formatters = [new Intl.DateTimeFormat('sv', { dateStyle: 'short', timeZone: 'Asia/Kolkata' })]
     // const formatters = [new Intl.DateTimeFormat('sv', { timeZone: 'Asia/Kolkata' })]
-    formatters.forEach(fmt => console.log(fmt.format(date)))
+    const hell = formatters.forEach(fmt => console.log(fmt.format(date)))
+    const a = hell.split('-');
+    console.log(a)
+
     // let d = new Date().toLocaleString("en-us", { timeZone: 'Asia/kolkata' });
     // const gim = d.getMonth() + ':' + d.getDate()
     // console.log(tim)
