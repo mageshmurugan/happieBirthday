@@ -1,12 +1,19 @@
 if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config();
+  require('dotenv').config();
 }
 
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const nodemailer = require('nodemailer');
-const Dates = require('./models/dates')
+const Dates = require('./models/dates');
+const mailjetTransport = require('nodemailer-mailjet-transport');
+const transport = nodemailer.createTransport(mailjetTransport({
+  auth: {
+    apiKey: '4c8b5491e74a0b98da676b275f4ac7ff',
+    apiSecret: 'c45b79d8863ee466b0228017b61a78d3'
+  }
+}));
 
 
 const app = express();
@@ -16,29 +23,30 @@ app.use(express.urlencoded({ extended: true }));
 // const dbUrl = 'mongodb://localhost:27017/dates';
 const dbUrl = process.env.DB_URL
 mongoose.connect(dbUrl, {
-    useNewUrlParser: true,
-    // useCreateIndex: true,
-    useUnifiedTopology: true,
-    // useFindAndModify: false
+  useNewUrlParser: true,
+  // useCreateIndex: true,
+  useUnifiedTopology: true,
+  // useFindAndModify: false
 });
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
-    console.log("Database connected");
+  console.log("Database connected");
 });
 const pass = process.env.PASS
 
 
-const authmail = nodemailer.createTransport({
-    service: 'gmail',
-    // host: 'smtp.ethereal.email',
-    // port: 587,
-    auth: {
-        user: 'mageshmurugan64@gmail.com',
-        pass: pass
-    }
-});
+
+// const authmail = nodemailer.createTransport({
+//   service: 'gmail',
+//   // host: 'smtp.ethereal.email',
+//   // port: 587,
+//   auth: {
+//     user: 'mageshmurugan64@gmail.com',
+//     pass: pass
+//   }
+// });
 
 // app.engine('ejs', ejsMate)
 app.set('view engine', 'ejs');
@@ -47,62 +55,62 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 
 app.get('/', (req, res) => {
-    res.render('date')
+  res.render('date')
 })
 
 app.post('/', async (req, res) => {
-    // console.log(req.body);
-    const { names, email, date } = req.body;
-    const m = date.split('-');
-    const sp = m[0]
-    const n = m.slice(1)
-    // console.log(n)
-    const tit = n.join('-');
+  // console.log(req.body);
+  const { names, email, date } = req.body;
+  const m = date.split('-');
+  const sp = m[0]
+  const n = m.slice(1)
+  // console.log(n)
+  const tit = n.join('-');
 
-    // const a = tit.split('-');
-    // const b = a[0].charAt(0);
-    // if (b == '0') {
-    //     a[0] = a[0].slice(1);
-    //     // console.log(a)
-    // }
-    // const c = a[1].charAt(0);
-    // if (c == '0') {
-    //     a[1] = a[1].slice(1);
-    // }
-    // const da = a.join(':');
-    // console.log(da)
+  // const a = tit.split('-');
+  // const b = a[0].charAt(0);
+  // if (b == '0') {
+  //     a[0] = a[0].slice(1);
+  //     // console.log(a)
+  // }
+  // const c = a[1].charAt(0);
+  // if (c == '0') {
+  //     a[1] = a[1].slice(1);
+  // }
+  // const da = a.join(':');
+  // console.log(da)
 
-    const data = new Dates({ email: email, names: names, date: tit, year: sp });
-    await data.save();
-    console.log(data)
-    res.redirect('/')
+  const data = new Dates({ email: email, names: names, date: tit, year: sp });
+  await data.save();
+  console.log(data)
+  res.redirect('/')
 })
 
 
 setInterval(myFunction, 1000 * 60 * 60 * 24)
 
 async function myFunction() {
-    const date = new Date()
-    // const timeZone = 'Asia/Kolkata';
-    // const tim = d.getHours() + ':' + d.getMinutes()
-    const formatters = new Intl.DateTimeFormat('sv', { dateStyle: 'short', timeZone: 'Asia/Kolkata' })
-    // const formatters = [new Intl.DateTimeFormat('sv', { timeZone: 'Asia/Kolkata' })]
-    // formatters.forEach(fmt => console.log(fmt.format(date).split('-')))
-    const hell = formatters.format(date).split('-').slice(1).join('-');
-    // const a = hell.split('-');
-    console.log(hell)
-    const findDate = await Dates.find({
-        date: hell
-    });
-    if (findDate) {
-        for (let datq of findDate) {
-            const mailOptions = {
-                from: 'Happie Birthday <mageshmurugan64@gmail.com>',
-                to: `${datq.names} <${datq.email}>`,
-                subject: `Happie Birthday ${datq.names}`,
-                // text: `Wishing You the Best Birthday ${datq.names} `
+  const date = new Date()
+  // const timeZone = 'Asia/Kolkata';
+  // const tim = d.getHours() + ':' + d.getMinutes()
+  const formatters = new Intl.DateTimeFormat('sv', { dateStyle: 'short', timeZone: 'Asia/Kolkata' })
+  // const formatters = [new Intl.DateTimeFormat('sv', { timeZone: 'Asia/Kolkata' })]
+  // formatters.forEach(fmt => console.log(fmt.format(date).split('-')))
+  const hell = formatters.format(date).split('-').slice(1).join('-');
+  // const a = hell.split('-');
+  console.log(hell)
+  const findDate = await Dates.find({
+    date: hell
+  });
+  if (findDate) {
+    for (let datq of findDate) {
+      const mailOptions = {
+        from: 'Happie Birthday <mageshmurugan64@gmail.com>',
+        to: `${datq.names} <${datq.email}>`,
+        subject: `Happie Birthday ${datq.names}`,
+        // text: `Wishing You the Best Birthday ${datq.names} `
 
-                html: `<!DOCTYPE HTML
+        html: `<!DOCTYPE HTML
                 PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
               <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
                 xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -408,14 +416,14 @@ async function myFunction() {
                                       <tbody>
                                         <tr>
                                           <td
-                                            style="overflow-wrap:break-word;word-break:break-word;padding:15px 20px 25px;font-family:'Raleway',sans-serif;"
+                                            style="overflow-wrap:break-word;word-break:break-word;padding:15px 17px 23px;font-family:'Raleway',sans-serif;"
                                             align="left">
               
                                             <div align="center">
                                               <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;font-family:'Raleway',sans-serif;"><tr><td style="font-family:'Raleway',sans-serif;" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="" style="height:54px; v-text-anchor:middle; width:300px;" arcsize="18.5%" strokecolor="#ffffff" strokeweight="2px" fillcolor="#e34c1e"><w:anchorlock/><center style="color:#FFF;font-family:'Raleway',sans-serif;"><![endif]-->
                                               <a href="https://happiebirthday.herokuapp.com" target="_blank"
                                                 style="box-sizing: border-box;display: inline-block;font-family:'Raleway',sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFF; background-color: #e34c1e; border-radius: 10px;-webkit-border-radius: 10px; -moz-border-radius: 10px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;border-top-color: #ffffff; border-top-style: solid; border-top-width: 2px; border-left-color: #ffffff; border-left-style: solid; border-left-width: 2px; border-right-color: #ffffff; border-right-style: solid; border-right-width: 2px; border-bottom-color: #ffffff; border-bottom-style: solid; border-bottom-width: 2px;">
-                                                <span style="display:block;padding:10px 16px;line-height:120%;"><span
+                                                <span style="display:block;padding:10px 14px;line-height:120%;"><span
                                                     style="font-size: 20px; line-height: 28.8px;">Automate Birthday
                                                     Wishes</span></span>
                                               </a>
@@ -544,26 +552,27 @@ async function myFunction() {
               </body>
               
               </html>`
-                // template: './hb.html',
-                // context: {
-                //     username: datq.names
-                // }
+        // template: './hb.html',
+        // context: {
+        //     username: datq.names
+        // }
 
-            };
-            authmail.sendMail(mailOptions,
-                function (error, info) {
-                    if (error) {
-                        console.log('ERROR')
-                        console.log(error);
-                    } else {
-                        console.log('Email Sent :' + info.response);
-                    }
-                });
-            // console.log(datq.year)
-            // console.log(d.getFullYear() - datq.year)
-        }
-
+      };
+      await transport.sendMail(mailOptions)
+      // authmail.sendMail(mailOptions,
+      //   function (error, info) {
+      //     if (error) {
+      //       console.log('ERROR')
+      //       console.log(error);
+      //     } else {
+      //       console.log('Email Sent :' + info.response);
+      //     }
+      //   });
+      // console.log(datq.year)
+      // console.log(d.getFullYear() - datq.year)
     }
+
+  }
 
 
 
@@ -611,5 +620,5 @@ async function myFunction() {
 
 const port = process.env.PORT
 app.listen(port, () => {
-    console.log(`SERVING ON PORT ${port}`)
+  console.log(`SERVING ON PORT ${port}`)
 })
