@@ -79,11 +79,15 @@ app.post('/', async (req, res) => {
 setInterval(myFunction, 1000)
 
 async function myFunction() {
-    let d = new Date().toLocaleString("en-us", { timeZone: 'Asia/kolkata' });
-    const tim = d.getHours() + ':' + d.getMinutes()
-    const gim = d.getMonth() + ':' + d.getDate()
-    console.log(tim)
-    console.log(gim)
+    const date = new Date()
+    // const timeZone = 'Asia/Kolkata';
+    const formatters = [new Intl.DateTimeFormat('sv', { timeStyle: 'medium', dateStyle: 'short', timeZone: 'Asia/Kolkata' })]
+    formatters.forEach(fmt => console.log(fmt.format(date)))
+    // let d = new Date().toLocaleString("en-us", { timeZone: 'Asia/kolkata' });
+    // const tim = d.getHours() + ':' + d.getMinutes()
+    // const gim = d.getMonth() + ':' + d.getDate()
+    // console.log(tim)
+    // console.log(gim)
 
 }
 
