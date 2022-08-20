@@ -86,7 +86,7 @@ app.post('/', async (req, res) => {
   res.redirect('/')
 })
 
-setInterval(myFunction, 1000 * 60)
+setInterval(myFunction, 1000 * 60 * 60 * 24)
 
 
 async function myFunction() {
@@ -558,16 +558,16 @@ async function myFunction() {
         // }
 
       };
-      await transport.sendMail(mailOptions)
-      // authmail.sendMail(mailOptions,
-      //   function (error, info) {
-      //     if (error) {
-      //       console.log('ERROR')
-      //       console.log(error);
-      //     } else {
-      //       console.log('Email Sent :' + info.response);
-      //     }
-      //   });
+      // await transport.sendMail(mailOptions)
+      await transport.sendMail(mailOptions,
+        function (error, info) {
+          if (error) {
+            console.log('ERROR')
+            console.log(error);
+          } else {
+            console.log('Email Sent :' + info.response);
+          }
+        });
       // console.log(datq.year)
       // console.log(d.getFullYear() - datq.year)
     }
