@@ -76,7 +76,7 @@ app.post('/', async (req, res) => {
 })
 
 
-setInterval(myFunction, 1000 * 60)
+setInterval(myFunction, 1000 * 60 * 30)
 
 async function myFunction() {
     const date = new Date()
