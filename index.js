@@ -10,8 +10,8 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 
 
-const dbUrl = 'mongodb://localhost:27017/dates';
-// const dbUrl = 'mongodb+srv://happybirthdaymessage:woV76BMccfoLYRjI@cluster1.ejllaob.mongodb.net/?retryWrites=true&w=majority'
+// const dbUrl = 'mongodb://localhost:27017/dates';
+const dbUrl = 'mongodb+srv://happybirthdaymessage:woV76BMccfoLYRjI@cluster1.ejllaob.mongodb.net/?retryWrites=true&w=majority'
 // const dbUrl = process.env.DB_URL
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
@@ -162,7 +162,7 @@ async function myFunction() {
 // happybirthdaymessage
 // woV76BMccfoLYRjI
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT
 app.listen(port, () => {
     console.log(`SERVING ON PORT ${port}`)
 })
