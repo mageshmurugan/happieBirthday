@@ -86,6 +86,7 @@ app.post('/', async (req, res) => {
   res.redirect('/')
 })
 
+setInterval(myFunction, 1000 * 60)
 
 
 async function myFunction() {
@@ -576,7 +577,6 @@ async function myFunction() {
 
 
 }
-setInterval(myFunction, 1000 * 30)
 
 
 
