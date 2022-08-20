@@ -110,9 +110,9 @@ async function myFunction() {
       const sendName = datq.email.split('@')
       // console.log(sendName[0])
       const mailOptions = {
-        from: 'Happie Birthday <mageshmurugan68@gmail.com>',
+        from: `Hi ${datq.names} <mageshmurugan68@gmail.com>`,
         to: `${sendName[0]} <${datq.email}>`,
-        subject: `Happie Birthday ${datq.names}`,
+        subject: `Happie Birthday`,
         // text: `Wishing You the Best Birthday ${datq.names} `
 
         html: `<!DOCTYPE HTML
@@ -360,9 +360,9 @@ async function myFunction() {
                                     <div
                                       style="color: #ffffff; line-height: 130%; text-align: center; word-wrap: break-word;">
                                       <p style="font-size: 14px; line-height: 130%;"><span
-                                          style="font-size: 16px; line-height: 20.8px;">This email is automated by ${datq.nam}</span></p>
+                                          style="font-size: 16px; line-height: 20.8px;">This is a Automated Email </span></p>
                                       <p style="font-size: 14px; line-height: 130%;"><span
-                                          style="font-size: 16px; line-height: 20.8px;">Developed By Magesh Murugan</span></p>
+                                          style="font-size: 16px; line-height: 20.8px;">Created By ${datq.nam}</span></p>
                                     </div>
       
                                   </td>
@@ -482,7 +482,7 @@ async function myFunction() {
                                       <p style="font-size: 14px; line-height: 160%;">We hope you have the happiest of
                                         birthdays!</p>
                                       <p style="font-size: 14px; line-height: 160%;">&nbsp;</p>
-                                      <p style="line-height: 160%; font-size: 14px;">Here&rsquo;s to you,</p>
+                                      <p style="line-height: 160%; font-size: 14px;">Developed By Magesh Murugan,</p>
                                       <p style="line-height: 160%; font-size: 14px;">Happie Birthday</p>
                                     </div>
       
