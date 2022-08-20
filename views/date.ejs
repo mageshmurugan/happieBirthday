@@ -20,12 +20,12 @@
                         <img src="https://images.unsplash.com/photo-1571863533956-01c88e79957e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80"
                             alt="" class="card-img-top" />
                         <div class="card-body">
-                            <h5 class="card-title">Enter Birthday Date</h5>
+                            <h5 class="card-title">Automate Birthday Wishes</h5>
                             <form action="/" method="POST" class="validated-form" novalidate>
                                 <div class="mb-3">
-                                    <label class="form-label" for="names">Name</label>
+                                    <label class="form-label" for="names">Friend Name</label>
                                     <input class="form-control" type="text" id="names" name="names" autocomplete="off"
-                                        autofocus required>
+                                        autofocus required placeholder="Friend Name">
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
@@ -33,16 +33,24 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="email">Email</label>
-                                    <input class="form-control" type="email" id="email" autocomplete="off" name="email"
+                                    <input class="form-control" type="email" id="email" name="email" autocomplete="on"
+                                        required placeholder="Email">
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="date">Date of Birth</label>
+                                    <input class="form-control" type="Date" id="date" autocomplete="off" name="date"
                                         required>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label" for="date">Date</label>
-                                    <input class="form-control" type="Date" id="date" autocomplete="off" name="date"
-                                        required>
+                                    <label class="form-label" for="nam">Your Name</label>
+                                    <input class="form-control" type="text" id="nam" name="nam" autocomplete="on"
+                                        autofocus required placeholder="Your Name">
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
