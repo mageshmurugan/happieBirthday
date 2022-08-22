@@ -7,13 +7,13 @@ const path = require('path');
 const mongoose = require('mongoose');
 const nodemailer = require('nodemailer');
 const Dates = require('./models/dates');
-const mailjetTransport = require('nodemailer-mailjet-transport');
-const transport = nodemailer.createTransport(mailjetTransport({
-    auth: {
-        apiKey: '4c8b5491e74a0b98da676b275f4ac7ff',
-        apiSecret: 'c45b79d8863ee466b0228017b61a78d3'
-    }
-}));
+// const mailjetTransport = require('nodemailer-mailjet-transport');
+// const transport = nodemailer.createTransport(mailjetTransport({
+//     auth: {
+//         apiKey: '4c8b5491e74a0b98da676b275f4ac7ff',
+//         apiSecret: 'c45b79d8863ee466b0228017b61a78d3'
+//     }
+// }));
 
 
 const app = express();
@@ -38,15 +38,15 @@ const pass = process.env.PASS
 
 
 
-// const authmail = nodemailer.createTransport({
-//   service: 'gmail',
-//   // host: 'smtp.ethereal.email',
-//   // port: 587,
-//   auth: {
-//     user: 'mageshmurugan64@gmail.com',
-//     pass: pass
-//   }
-// });
+const authmail = nodemailer.createTransport({
+    service: 'gmail',
+    // host: 'smtp.ethereal.email',
+    // port: 587,
+    auth: {
+        user: 'mageshmurugan64@gmail.com',
+        pass: pass
+    }
+});
 
 // app.engine('ejs', ejsMate)
 app.set('view engine', 'ejs');
@@ -596,17 +596,17 @@ async function myFunction() {
                 // }
 
             };
-            transport.sendMail(mailOptions).then(console.log('Email Sent'))
+            // transport.sendMail(mailOptions).then(console.log('Email Sent'))
 
-            // await transport.sendMail(mailOptions,
-            //   function (error, info) {
-            //     if (error) {
-            //       console.log('ERROR')
-            //       console.log(error);
-            //     } else {
-            //       console.log('Email Sent :' + info.response);
-            //     }
-            //   });
+            authmail.sendMail(mailOptions,
+                function (error, info) {
+                    if (error) {
+                        console.log('ERROR')
+                        console.log(error);
+                    } else {
+                        console.log('Email Sent :' + info.response);
+                    }
+                });
             // console.log(datq.year)
             // console.log(d.getFullYear() - datq.year)
         }
@@ -656,7 +656,7 @@ async function myFunction() {
 
 // happybirthdaymessage
 // woV76BMccfoLYRjI
-setInterval(myFunction, 1000 * 60 * 10)
+setInterval(myFunction, 10800000)
 
 const port = process.env.PORT
 app.listen(port, () => {
