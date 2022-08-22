@@ -85,8 +85,7 @@ app.post('/', async (req, res) => {
     console.log(data)
     res.redirect('/')
 })
-
-setInterval(myFunction, 1000 * 60 * 30)
+// const func = myFunction()
 
 
 async function myFunction() {
@@ -657,6 +656,7 @@ async function myFunction() {
 
 // happybirthdaymessage
 // woV76BMccfoLYRjI
+setInterval(myFunction, 1000 * 60 * 10)
 
 const port = process.env.PORT
 app.listen(port, () => {
