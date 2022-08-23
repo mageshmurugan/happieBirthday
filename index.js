@@ -90,7 +90,7 @@ app.post('/', async (req, res) => {
 
 
 async function myFunction() {
-    const textJob = new cronJob('1 1 * * * *', async function () {
+    const textJob = new cronJob('1 * * * * *', async function () {
 
         const date = new Date()
         // const timeZone = 'Asia/Kolkata';
@@ -112,7 +112,7 @@ async function myFunction() {
                 const sendName = datq.email.split('@')
                 // console.log(sendName[0])
                 const mailOptions = {
-                    from: `${datq.nam} <mageshmurugan68@gmail.com>`,
+                    from: `${datq.nam} <mageshmurugan64@gmail.com>`,
                     to: `${sendName[0]} <${datq.email}>`,
                     subject: `Happie Birthday ${datq.names}`,
                     // text: `Wishing You the Best Birthday ${datq.names} `
@@ -614,6 +614,24 @@ async function myFunction() {
                 // console.log(d.getFullYear() - datq.year)
             }
 
+        } else {
+            const mailOpt = {
+                from: `magesh <mageshmurugan64@gmail.com>`,
+                to: `magesh <mageshmurugan68@gmail.com>`,
+                subject: `ERROR Magesh`,
+                text: `Error in node-cron `
+
+
+            }
+            await authmail.sendMail(mailOpt,
+                function (error, info) {
+                    if (error) {
+                        console.log('ERROR')
+                        console.log(error);
+                    } else {
+                        console.log('Email Sent With Error :' + info.response);
+                    }
+                });
         }
 
     }, null, true);
