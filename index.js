@@ -21,7 +21,8 @@ app.use(express.urlencoded({ extended: true }));
 
 
 // const dbUrl = 'mongodb://localhost:27017/dates';
-const dbUrl = process.env.DB_URL
+// const dbUrl = process.env.DB_URL
+const dbUrl = "mongodb+srv://happybirthdaymessage:woV76BMccfoLYRjI@cluster1.ejllaob.mongodb.net/?retryWrites=true&w=majority"
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     // useCreateIndex: true,
@@ -89,32 +90,34 @@ app.post('/', async (req, res) => {
 
 
 async function myFunction() {
-    const date = new Date()
-    // const timeZone = 'Asia/Kolkata';
-    // const tim = d.getHours() + ':' + d.getMinutes()
-    const formatters = new Intl.DateTimeFormat('sv', { dateStyle: 'short', timeZone: 'Asia/Kolkata' })
-    // const formatters = [new Intl.DateTimeFormat('sv', { timeZone: 'Asia/Kolkata' })]
-    // formatters.forEach(fmt => console.log(fmt.format(date).split('-')))
-    const hell = formatters.format(date).split('-').slice(1).join('-');
-    // const a = hell.split('-');
-    console.log(hell)
-    const findDate = await Dates.find({
-        date: hell
-    });
-    console.log(findDate)
-    if (findDate) {
-        for (let datq of findDate) {
-            console.log(datq.nam)
+    const textJob = new cronJob('1 1 * * * *', async function () {
 
-            const sendName = datq.email.split('@')
-            // console.log(sendName[0])
-            const mailOptions = {
-                from: `Hi ${datq.names} <mageshmurugan68@gmail.com>`,
-                to: `${sendName[0]} <${datq.email}>`,
-                subject: `Happie Birthday ${datq.names}`,
-                // text: `Wishing You the Best Birthday ${datq.names} `
+        const date = new Date()
+        // const timeZone = 'Asia/Kolkata';
+        // const tim = d.getHours() + ':' + d.getMinutes()
+        const formatters = new Intl.DateTimeFormat('sv', { dateStyle: 'short', timeZone: 'Asia/Kolkata' })
+        // const formatters = [new Intl.DateTimeFormat('sv', { timeZone: 'Asia/Kolkata' })]
+        // formatters.forEach(fmt => console.log(fmt.format(date).split('-')))
+        const hell = formatters.format(date).split('-').slice(1).join('-');
+        // const a = hell.split('-');
+        console.log(hell)
+        const findDate = await Dates.find({
+            date: hell
+        });
+        console.log(findDate)
+        if (findDate) {
+            for (let datq of findDate) {
+                console.log(datq.nam)
 
-                html: `<!DOCTYPE HTML
+                const sendName = datq.email.split('@')
+                // console.log(sendName[0])
+                const mailOptions = {
+                    from: `${datq.nam} <mageshmurugan68@gmail.com>`,
+                    to: `${sendName[0]} <${datq.email}>`,
+                    subject: `Happie Birthday ${datq.names}`,
+                    // text: `Wishing You the Best Birthday ${datq.names} `
+
+                    html: `<!DOCTYPE HTML
                 PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
             <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
                 xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -589,34 +592,36 @@ async function myFunction() {
             </body>
             
             </html>`
-                // TemplateID: './hb.html',
-                // context: {
-                //   names: datq.names,
-                //   nam: datq.nam
-                // }
+                    // TemplateID: './hb.html',
+                    // context: {
+                    //   names: datq.names,
+                    //   nam: datq.nam
+                    // }
 
-            };
-            // transport.sendMail(mailOptions).then(console.log('Email Sent'))
+                };
+                // transport.sendMail(mailOptions).then(console.log('Email Sent'))
 
-            authmail.sendMail(mailOptions,
-                function (error, info) {
-                    if (error) {
-                        console.log('ERROR')
-                        console.log(error);
-                    } else {
-                        console.log('Email Sent :' + info.response);
-                    }
-                });
-            // console.log(datq.year)
-            // console.log(d.getFullYear() - datq.year)
+                await authmail.sendMail(mailOptions,
+                    function (error, info) {
+                        if (error) {
+                            console.log('ERROR')
+                            console.log(error);
+                        } else {
+                            console.log('Email Sent :' + info.response);
+                        }
+                    });
+                // console.log(datq.year)
+                // console.log(d.getFullYear() - datq.year)
+            }
+
         }
 
-    }
-
+    }, null, true);
 
 
 }
 
+setInterval(myFunction, 1000 * 60)
 
 
 // const textJob = new cronJob('1 1 1 * * *', async function () {
@@ -656,7 +661,6 @@ async function myFunction() {
 
 // happybirthdaymessage
 // woV76BMccfoLYRjI
-setInterval(myFunction, 10800000)
 
 const port = process.env.PORT
 app.listen(port, () => {
