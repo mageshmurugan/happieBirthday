@@ -639,7 +639,7 @@ async function myFunction() {
 
 }
 
-setInterval(myFunction, 1000 * 60)
+setInterval(myFunction, 1000 * 60 * 60)
 
 
 // const textJob = new cronJob('1 1 1 * * *', async function () {
