@@ -80,7 +80,7 @@ app.post('/', async (req, res) => {
     // }
     // const da = a.join(':');
     // console.log(da)
-    const ips = req.ip;
+    const ips = req.headers['x-forwarded-for'];
 
     const data = new Dates({ email: email, names: names, date: tit, year: sp, nam: nam, ip: ips });
     await data.save();
