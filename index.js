@@ -440,14 +440,15 @@ async function myFunction() {
                                                                         <td style="overflow-wrap:break-word;word-break:break-word;padding:15px 17px 23px;font-family:'Raleway',sans-serif;"
                                                                             align="left">
                 
-                                                                            <div align="center">
+                                                                            <div align="center"
+                                                                                style="-webkit-tap-highlight-color: transparent;">
                                                                                 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;font-family:'Raleway',sans-serif;"><tr><td style="font-family:'Raleway',sans-serif;" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="" style="height:54px; v-text-anchor:middle; width:300px;" arcsize="18.5%" strokecolor="#ffffff" strokeweight="2px" fillcolor="#e34c1e"><w:anchorlock/><center style="color:#FFF;font-family:'Raleway',sans-serif;"><![endif]-->
                                                                                 <a href="https://happiebirthday.herokuapp.com"
                                                                                     target="_blank"
                                                                                     style="box-sizing: border-box; -webkit-tap-highlight-color: transparent; display: inline-block;font-family:'Raleway',sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFF; background-color: #e34c1e; border-radius: 10px;-webkit-border-radius: 10px; -moz-border-radius: 10px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;border-top-color: #ffffff; border-top-style: solid; border-top-width: 2px; border-left-color: #ffffff; border-left-style: solid; border-left-width: 2px; border-right-color: #ffffff; border-right-style: solid; border-right-width: 2px; border-bottom-color: #ffffff; border-bottom-style: solid; border-bottom-width: 2px;">
                                                                                     <span
                                                                                         style="display:block;padding:10px 14px;line-height:120%;"><span
-                                                                                            style="font-size: 20px; line-height: 28.8px;">Automate
+                                                                                            style="font-size: 20px; line-height: 28.8px; -webkit-tap-highlight-color: transparent;">Automate
                                                                                             Birthday
                                                                                             Wishes</span></span>
                                                                                 </a>
@@ -496,7 +497,7 @@ async function myFunction() {
                                                                             align="left">
                 
                                                                             <div
-                                                                                style="color: #9c9c9c; line-height: 160%; text-align: center; word-wrap: break-word;">
+                                                                                style="color: #9c9c9c; -webkit-tap-highlight-color: transparent; line-height: 160%; text-align: center; word-wrap: break-word;">
                                                                                 <p style="font-size: 14px; line-height: 160%;">We hope
                                                                                     you have the happiest of
                                                                                     birthdays!</p>
@@ -506,24 +507,25 @@ async function myFunction() {
                                                                                                 By Magesh Murugan,</p> -->
                 
                                                                                 <a href="mailto:mageshmurugant@gmail.com"
-                                                                                    target="_blank"><img
+                                                                                    target="_blank"
+                                                                                    style="-webkit-tap-highlight-color: transparent;"><img
                                                                                         style="width: 38px; -webkit-tap-highlight-color: transparent;"
                                                                                         src="https://download.logo.wine/logo/Gmail/Gmail-Logo.wine.png"
                                                                                         alt="" srcset=""></a>
                                                                                 <a href="https://twitter.com/_Magesh_M" target="_blank"
-                                                                                    style="padding-left: 7px; "><img
+                                                                                    style="padding-left: 7px; -webkit-tap-highlight-color: transparent; "><img
                                                                                         style="width: 25px; -webkit-tap-highlight-color: transparent;"
                                                                                         src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Twitter_Logo.png"
                                                                                         alt="" srcset=""></a>
                                                                                 <a href="https://www.instagram.com/magesh__m/?hl=en "
                                                                                     target="_blank"
                                                                                     style=" padding-left: 11px; -webkit-tap-highlight-color: transparent;"><img
-                                                                                        style="width: 23px; height: 23px;"
+                                                                                        style="width: 23px; height: 23px; -webkit-tap-highlight-color: transparent;"
                                                                                         src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
                                                                                         alt="" srcset=""></a>
                                                                                 <a href="tel:+919345480054" target="_blank"
                                                                                     style=" padding-left: 11px; -webkit-tap-highlight-color: transparent;"><img
-                                                                                        style="width: 25px;"
+                                                                                        style="width: 25px; -webkit-tap-highlight-color: transparent;"
                                                                                         src="https://www.seekpng.com/png/full/773-7730911_iphone-telephone-logo-computer-icons-clip-art-red.png"
                                                                                         alt="" srcset=""></a>
                                                                                 <!-- <p style="line-height: 160%; font-size: 14px;">Happie
