@@ -8,7 +8,8 @@ const dateSchema = new Schema({
     nam: String,
     email: String,
     date: String,
-    year: String
+    year: String,
+    ip: String
 });
 
 module.exports = mongoose.model('Dates', dateSchema);
