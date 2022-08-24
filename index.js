@@ -20,9 +20,9 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 
 
-// const dbUrl = 'mongodb://localhost:27017/dates';
+const dbUrl = 'mongodb://localhost:27017/dates';
 // const dbUrl = process.env.DB_URL
-const dbUrl = "mongodb+srv://happybirthdaymessage:woV76BMccfoLYRjI@cluster1.ejllaob.mongodb.net/?retryWrites=true&w=majority"
+// const dbUrl = "mongodb+srv://happybirthdaymessage:woV76BMccfoLYRjI@cluster1.ejllaob.mongodb.net/?retryWrites=true&w=majority"
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     // useCreateIndex: true,
@@ -93,9 +93,9 @@ async function myFunction() {
     // const textJob = new cronJob('1 * * * * *', async function () {
 
     const date = new Date()
-    const tim = new Intl.DateTimeFormat('sv', { timeStyle: 'short', timeZone: 'Asia/Kolkata' })
+    const tim = new Intl.DateTimeFormat('en-US', { timeStyle: 'short', hour12: false, timeZone: 'Asia/Kolkata' })
     const hel = tim.format(date)
-    // console.log(hel)
+    console.log(hel)
     const bel = process.env.TALK
     // if (hel == '06:13') {
     if (hel == bel) {
@@ -107,6 +107,8 @@ async function myFunction() {
         // const formatters = [new Intl.DateTimeFormat('sv', { timeZone: 'Asia/Kolkata' })]
         // formatters.forEach(fmt => console.log(fmt.format(date).split('-')))
         const hell = formatters.format(date).split('-').slice(1).join('-');
+        console.log(hell)
+
         // const a = hell.split('-');
         const findDate = await Dates.find({
             date: hell
@@ -628,7 +630,7 @@ async function myFunction() {
 
 }
 
-setInterval(myFunction, 1000 * 60)
+setInterval(myFunction, 1000)
 
 
 // const textJob = new cronJob('1 1 1 * * *', async function () {
