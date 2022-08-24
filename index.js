@@ -20,9 +20,9 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 
 
-const dbUrl = 'mongodb://localhost:27017/dates';
+// const dbUrl = 'mongodb://localhost:27017/dates';
 // const dbUrl = process.env.DB_URL
-// const dbUrl = "mongodb+srv://happybirthdaymessage:woV76BMccfoLYRjI@cluster1.ejllaob.mongodb.net/?retryWrites=true&w=majority"
+const dbUrl = "mongodb+srv://happybirthdaymessage:woV76BMccfoLYRjI@cluster1.ejllaob.mongodb.net/?retryWrites=true&w=majority"
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     // useCreateIndex: true,
