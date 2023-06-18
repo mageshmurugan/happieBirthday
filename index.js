@@ -98,7 +98,6 @@ app.post('/', async (req, res) => {
 })
 // const func = myFunction()
 
-
 async function myFunction() {
     // const textJob = new cronJob('1 * * * * *', async function () {
 
@@ -645,8 +644,10 @@ async function myFunction() {
     }
 
 }
-
-setInterval(myFunction, 60000)
+app.get('./cron',async(req,res)=>{
+    // setInterval(myFunction, 60000)
+    await myFunction
+})
 
 
 // const textJob = new cronJob('1 1 1 * * *', async function () {
