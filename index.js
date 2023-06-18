@@ -105,7 +105,7 @@ async function myFunction() {
     const date = new Date()
     const tim = new Intl.DateTimeFormat('en-US', { timeStyle: 'short', hour12: false, timeZone: 'Asia/Kolkata' })
     const hel = tim.format(date)
-    console.log(hel)
+    console.log(`helll....${hel}`)
     const bel = process.env.TALK
     // if (hel == '06:13') {
     if (hel == bel) {
@@ -646,7 +646,7 @@ async function myFunction() {
 
 }
 
-setInterval(myFunction, 20000)
+setInterval(myFunction, 60000)
 
 
 // const textJob = new cronJob('1 1 1 * * *', async function () {
